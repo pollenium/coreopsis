@@ -38,12 +38,12 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 exports.__esModule = true;
 var pollenium_ilex_1 = require("pollenium-ilex");
 var promptComputePrivateKey_1 = require("./promptComputePrivateKey");
-function promptComputeKeypair() {
+function promptComputeKeypair(presalt) {
     return __awaiter(this, void 0, void 0, function () {
         var privateKey;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, promptComputePrivateKey_1.promptComputePrivateKey()];
+                case 0: return [4 /*yield*/, promptComputePrivateKey_1.promptComputePrivateKey(presalt)];
                 case 1:
                     privateKey = _a.sent();
                     return [2 /*return*/, new pollenium_ilex_1.Keypair(privateKey)];

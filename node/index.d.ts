@@ -1,4 +1,15 @@
 import * as _utils from './utils';
-import * as _users from './users';
+import { Uish } from 'pollenium-uvaursi';
+import { Keypair } from 'pollenium-ilex';
+import { Bytes32 } from 'pollenium-buttercup';
 export declare const utils: typeof _utils;
-export declare const users: typeof _users;
+export declare class Coreopsis {
+    private readonly presalt;
+    constructor(presalt: Uish);
+    computePrivateKey(arg: {
+        know: Uish;
+        have: Uish;
+    }): Promise<Bytes32>;
+    promptComputePrivateKey(): Promise<Bytes32>;
+    promptComputeKeypair(): Promise<Keypair>;
+}

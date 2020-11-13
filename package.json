@@ -1,21 +1,22 @@
 {
-  "name": "pollenium-xeranthemum",
+  "name": "pollenium-coreopsis",
   "version": "4.0.0",
   "description": "",
   "main": "node/index.js",
   "scripts": {
-    "tsc": "tsc"
+    "tsc": "tsc",
+    "test": "ts-node ts/test/prompt-dummy.ts"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/pollenium/xeranthemum.git"
+    "url": "git+ssh://git@github.com/pollenium/coreopsis.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/pollenium/xeranthemum/issues"
+    "url": "https://github.com/pollenium/coreopsis/issues"
   },
-  "homepage": "https://github.com/pollenium/xeranthemum#readme",
+  "homepage": "https://github.com/pollenium/coreopsis#readme",
   "devDependencies": {
     "tsc": "^1.20150623.0",
     "typescript": "^3.7.5"
@@ -24,6 +25,7 @@
     "pollenium-buttercup": "^19.1.0",
     "pollenium-forgetmenot": "^4.0.0",
     "pollenium-ilex": "^9.2.0",
+    "pollenium-shasta": "^1.0.1",
     "pollenium-uvaursi": "^8.5.0",
     "prompt-promise": "^1.0.3"
   }

@@ -41,9 +41,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 exports.__esModule = true;
 var computePrivateKey_1 = require("./computePrivateKey");
 var prompt_promise_1 = __importDefault(require("prompt-promise"));
-function promptComputePrivateKey() {
+var pollenium_uvaursi_1 = require("pollenium-uvaursi");
+function promptComputePrivateKey(presalt) {
     return __awaiter(this, void 0, void 0, function () {
-        var knowUtf8, haveUtf8;
+        var knowUtf8, haveUtf8, know, have;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0: return [4 /*yield*/, prompt_promise_1["default"].password('Something you know: ')];
@@ -52,7 +53,9 @@ function promptComputePrivateKey() {
                     return [4 /*yield*/, prompt_promise_1["default"].password('Something you have: ')];
                 case 2:
                     haveUtf8 = _a.sent();
-                    return [2 /*return*/, computePrivateKey_1.computePrivateKey({ knowUtf8: knowUtf8, haveUtf8: haveUtf8 })];
+                    know = pollenium_uvaursi_1.Uu.fromUtf8(knowUtf8.trim());
+                    have = pollenium_uvaursi_1.Uu.fromUtf8(haveUtf8.trim());
+                    return [2 /*return*/, computePrivateKey_1.computePrivateKey({ know: know, have: have, presalt: presalt })];
             }
         });
     });

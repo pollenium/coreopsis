@@ -1,6 +1,10 @@
-// know: a
-// have: b
+import { Coreopsis } from '../'
+import { Uu } from 'pollenium-uvaursi'
 
-import { utils } from '../'
+async function run() {
+  const coreopsis = new Coreopsis(Uu.fromUtf8('test'))
+  const keypair = await coreopsis.promptComputeKeypair()
+  console.log(keypair.getAddress().uu.toHex())
+}
 
-utils.promptComputeKeypair()
+run()

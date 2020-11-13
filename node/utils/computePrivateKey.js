@@ -42,17 +42,17 @@ exports.__esModule = true;
 var pollenium_uvaursi_1 = require("pollenium-uvaursi");
 var crypto_1 = __importDefault(require("crypto"));
 var pollenium_buttercup_1 = require("pollenium-buttercup");
-var salt = pollenium_uvaursi_1.Uu.fromHexish('830a46600f948915d616413455e14c7d6dc08845128cd7a5f93777af5601060d');
+var pollenium_shasta_1 = require("pollenium-shasta");
 var iterations = Math.pow(2, 32) - 1;
 var keyLength = 32;
 var digest = 'sha256';
 function computePrivateKey(struct) {
     return __awaiter(this, void 0, void 0, function () {
-        var knowUtf8, haveUtf8, know, have, knowAndhave;
+        var salt, know, have, knowAndhave;
         return __generator(this, function (_a) {
-            knowUtf8 = struct.knowUtf8, haveUtf8 = struct.haveUtf8;
-            know = pollenium_uvaursi_1.Uu.fromUtf8(knowUtf8.trim());
-            have = pollenium_uvaursi_1.Uu.fromUtf8(haveUtf8.trim());
+            salt = pollenium_shasta_1.genSha256(struct.presalt);
+            know = pollenium_uvaursi_1.Uu.wrap(struct.know);
+            have = pollenium_uvaursi_1.Uu.wrap(struct.have);
             knowAndhave = pollenium_uvaursi_1.Uu.genConcat([know, have]);
             return [2 /*return*/, new Promise(function (resolve, reject) {
                     crypto_1["default"].pbkdf2(knowAndhave.u, salt.u, iterations, keyLength, digest, function (error, derivedKey) {
